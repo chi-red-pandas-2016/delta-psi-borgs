@@ -4,7 +4,7 @@ class CreateTags < ActiveRecord::Migration[5.0]
       t.references :article, foreign_key: true
       t.references :category, foreign_key: true
 
-      t.timestamps
+      t.timestamps(null: false)
     end
   end
 end
