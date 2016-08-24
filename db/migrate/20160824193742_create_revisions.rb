@@ -4,7 +4,7 @@ class CreateRevisions < ActiveRecord::Migration[5.0]
       t.text :body
       t.text :citations
       t.integer :editor_id
-      t.references :article, foreign_key: true
+      t.integer :article_id
 
       t.timestamps
     end
