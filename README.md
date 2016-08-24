@@ -1,24 +1,12 @@
-# README
+# Phase 3 Client Project: Team Delta-Psi-Borgs
+**Members: Jacob, Kyrene, Robert, Ben & Kit**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### The user stories that define our MVP
+* As a user I should be able to login
+* As a user I should be able to logout
+* As a user I should be able to register
+* As a logged in user I should not see the login or the sign up buttons
+* As a logged in user I should be able to create an article
+* As a guest user I should be able to revise an article
+* As a user I should be able to see all articles within a specific category
+* As a user I should be able to see the 5 most recent articles on the homepage
