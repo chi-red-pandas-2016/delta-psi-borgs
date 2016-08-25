@@ -1,0 +1,8 @@
+<h2>Create New Article</h2>
+
+<%= form_for @article, url: "/articles" do |f| %>
+  <%= render partial: 'title', locals: {f: f} %>
+  <%= render partial: 'categories', locals: {categories: @categories} %>
+  <%= render partial: 'form' %>
+  <%= f.submit "Submit" %>
+<% end %>
