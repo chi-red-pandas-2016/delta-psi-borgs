@@ -22,7 +22,8 @@ class ArticlesController < ApplicationController
       if @article.save
         @revision = Revision.new(article_id: @article, body: params[:body], editor_id: current_user)
         if @revision.save
-          
+          params.each do ||
+
         end
       else
       end
