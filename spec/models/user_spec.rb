@@ -8,5 +8,9 @@ RSpec.describe User, type: :model do
       should have_many(:revisions).
         with_foreign_key(:editor_id)
     end
+
+    it 'belongs to a role' do
+    	should belong_to(:role)
+    end
   end
 end
