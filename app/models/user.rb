@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
   has_many :revisions, foreign_key: :editor_id
+  belongs_to :role
 
   def author
     self.revisions.first.username
