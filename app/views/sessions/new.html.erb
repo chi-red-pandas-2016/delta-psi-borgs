@@ -1,7 +1,22 @@
-<h1>Login</h1>
-
-<%= form_tag '/login' do %>
-  Username: <%= text_field_tag :username %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Log In" %>
-<% end %>
+<body>
+  <div class="row">
+    <div class="col s6 offset-s3">
+      <div class="card">
+        <div class="card-content center-align">
+          <div class="row">
+            <h1 class="center-align">Login</h1>
+          </div>
+          <div class="row">
+            <div class="col s8 offset-s2">
+              <%= form_tag '/login' do %>
+              Username: <%= text_field_tag :username %>
+              Password: <%= password_field_tag :password %>
+              <%= submit_tag "Log In", :class => 'waves-effect waves-light btn red darken-4' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+</body>
