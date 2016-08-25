@@ -14,4 +14,12 @@
  *= require_tree .
  *= require_self
  */
- @import "materialize"
+ @import "materialize";
+
+ .full {
+   background: url(background.png) no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ }
