@@ -1,8 +1,21 @@
-<h1>Signup!</h1>
-
-<%= form_for :user, url: "/users" do |f| %>
-  Username: <%= f.text_field :username %>
-  Email: <%= f.text_field :email %>
-  Passowrd: <%= f.password_field :password %>
-  <%= f.submit "Register" %>
-<% end %>
+  <div class="row">
+    <div class="col s6 offset-s3">
+      <div class="card">
+        <div class="card-content center-align">
+          <div class="row">
+            <h1 class="center-align">Signup!</h1>
+          </div>
+          <div class="row">
+            <div class="col s8 offset-s2">
+              <%= form_for :user, url: "/users" do |f| %>
+                Username: <%= f.text_field :username %>
+                Email: <%= f.text_field :email %>
+                Password: <%= f.password_field :password %>
+                <%= f.submit "Register", :class => 'waves-effect waves-light btn red darken-4' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
