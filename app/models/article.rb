@@ -4,5 +4,5 @@ class Article < ApplicationRecord
   has_many :tags
   has_many :categories, through: :tags
 
-  validates_presence_of :title, :author_id
+  validates_presence_of :title
 end
