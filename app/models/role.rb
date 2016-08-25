@@ -8,7 +8,7 @@ class Role < ApplicationRecord
   end
 
   def user?
-  	self.access < 3
+  	self.access >= 2
   end
 
   def guest?
