@@ -1,12 +1,12 @@
 class CreateRevisions < ActiveRecord::Migration[5.0]
   def change
     create_table :revisions do |t|
-      t.text :body
+      t.text :body, null: false
       t.text :citations
-      t.integer :editor_id
-      t.integer :article_id
+      t.integer :editor_id, null: false
+      t.integer :article_id, null: false
 
-      t.timestamps
+      t.timestamps(null: false)
     end
   end
 end

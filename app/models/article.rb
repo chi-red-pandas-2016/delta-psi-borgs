@@ -3,4 +3,6 @@ class Article < ApplicationRecord
   has_many :editors, through: :revisions
   has_many :tags
   has_many :categories, through: :tags
+
+  validates_presence_of :title, :author_id
 end
