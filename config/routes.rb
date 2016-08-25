@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   get '/users/new' => 'users#new'
 
+  get '/articles/new' => 'articles#new'
+
+  get '/articles/:id' => 'articles#show'
+
+  post '/articles' => 'articles#create'
+
   get '/login' => 'sessions#new'
 
   post '/login' => 'sessions#create'
