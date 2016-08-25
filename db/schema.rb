@@ -17,21 +17,22 @@ ActiveRecord::Schema.define(version: 20160825212449) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
+    t.integer  "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "title",      null: false
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "revisions", force: :cascade do |t|
-    t.text     "body",       null: false
+    t.text     "body"
     t.text     "citations"
-    t.integer  "editor_id",  null: false
-    t.integer  "article_id", null: false
+    t.integer  "editor_id"
+    t.integer  "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -53,9 +54,9 @@ ActiveRecord::Schema.define(version: 20160825212449) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        null: false
-    t.string   "email",           null: false
-    t.string   "password_digest", null: false
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "role_id"
