@@ -20,6 +20,7 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -32,8 +33,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~>3.5'
-  gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  #Use for seeding database and rspec testing
+  gem 'rapsum', '~> 0.1.1'
+  gem 'factory_girl_rails'
 end
 
 group :development do
