@@ -29,8 +29,9 @@ class ArticlesController < ApplicationController
               @article.categories << Category.find(param.to_i)
             end
           end
+        else
+          @article.destroy
         end
-      else
       end
     end
     redirect_to root_path
