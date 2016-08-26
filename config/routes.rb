@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   post 'categories', to: 'categories#create'
 
   get 'categories/new', to: 'categories#new', as: 'new_category'
+
+  get '/categories/:id' => 'categories#show'
 end
