@@ -6,9 +6,8 @@ class Article < ApplicationRecord
 
   validates_presence_of :title
 
-  # def initialize
-  #   @errors = ActiveModel::Errors.new(self)
-  # end
-  #
-  # attr_reader :errors
+  scope :recent, -> {
+    joins(:revisions).order("revisions.created_at desc").limit(5)
+  }
+
 end

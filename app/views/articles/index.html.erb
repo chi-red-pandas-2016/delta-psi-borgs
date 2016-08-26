@@ -1,8 +1,15 @@
 <div class="row">
+</div>
+
+<div class="row">
 
       <div class="col s12 m4 13">
-        <ul class="collection with-header">
+        <ul class="collection with-header z-depth-5">
 	        <li class="collection-header"><h4>Categories</h4></li>
+          <% if current_user == nil %>
+          <% elsif admin_access? %>
+            <a href="/categories/new" class="collection-item">new category</a>
+          <% end %> 
           <% @categories.each do |cat| %>
             <a href="categories/<%= cat.id %>" class="collection-item"><%= cat.title %></a>
           <% end %>
@@ -10,13 +17,14 @@
       </div>
 
    <div class="col s12 m8 19">
-    <ul class="collection">
+    <ul class="collection z-depth-5">
       <% @articles.each do |article| %>
-    	<li class="collection-item avatar">
-    		<img src="" alt="" class="circle">
-    		<span class="title"></span>
-    		<p><%= link_to article.title, "articles/#{article.id}" %></p>
-    </li>
+
+        <% if logged_in? && admin_access? %>
+          <%= render partial: 'display_articles', locals: {article: article} %>
+        <% elsif article.revisions.where(approved: true) != [] %>
+        	<%= render partial: 'display_articles', locals: {article: article} %>
+        <% end %>
     <% end %>
   </ul>
  </div>
@@ -24,6 +32,6 @@
 
 <% if logged_in? %>
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-<a href="/articles/new" class="btn-floating btn-large waves-effect waves-light red darken-4"><i class="material-icons">add</i></a>
+<a href="/articles/new" class="btn-floating btn-large waves-effect waves-light red darken-4 z-depth-5"><i class="material-icons">add</i></a>
 </div>
 <% end %>

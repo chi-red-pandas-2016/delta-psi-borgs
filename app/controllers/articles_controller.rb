@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @categories = Category.all
-    @articles = Article.all
+    p @articles = Article.recent
   end
 
   def show
@@ -18,6 +18,11 @@ class ArticlesController < ApplicationController
   def edit
     @categories = Category.all
     @article = Article.find(params[:id])
+
+  def approve
+    @article = Article.find(params[:id])
+    @article.revisions.last.update_attribute(:approved, true)
+    redirect_to article_path
   end
 
   def create
@@ -44,7 +49,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title)
+    params.require(:article).permit(:title, :picture)
   end
 
   def revision_params
