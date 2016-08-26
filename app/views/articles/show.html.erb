@@ -10,42 +10,16 @@
   </div>
 </div>
 <% @article.categories.each do |cat| %>
-<a href="/categories/<%= cat.id %>">
-  <div class="chip z-depth-3">
-    <%= cat.title %>
-  </div>
-</a>
+	<a href="/categories/<%= cat.id %>">
+	  <div class="chip z-depth-3">
+	    <%= cat.title %>
+	  </div>
+	</a>
 <% end %>
 
+<% if logged_in? && admin_access? %>
+	<%= form_for @article, url: appove_article_path do |f| %>
+		<%= f.submit "Approve", :class => 'waves-effect waves-light btn red darken-4'%>
+	<% end %>
+<% end %>
 
-<!--
-
-THIS METHOD IS CLOSER TO THE RIGHT WAY, and should be investgated when time permits 
-<div class="row">
-</div>
-<div class="row">
-  <div class="col s12">
-    <h2 class="header"><%= @article.title %></h2>
-    <div class="card horizontal">
-    	<div class="card-image">
-    	 	<img src=<%=@article.picture%>> 
-    	</div>
-    	<div class="card-stacked">
-    		<div class="card-content">
-      		<%= @article.revisions.last.body.html_safe %>
-      	</div>
-      	<div class="card-action">
-					<% @article.categories.each do |cat| %>
-					<a href="/categories/<%= cat.id %>">
-					  <div class="chip z-depth-3">
-					    <%= cat.title %>
-					  </div>
-					</a>
-		    	<% end %>
-		    </div>
-		  </div>
-		</div>
-	</div>
-</div>
-
- -->

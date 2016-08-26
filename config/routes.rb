@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/articles/:id', to:  'articles#show', as: 'article'
 
+  patch '/articles/:id', to: 'articles#approve', as: 'appove_article'
+
 
   post '/login' => 'sessions#create'
 
@@ -28,4 +30,5 @@ Rails.application.routes.draw do
   get 'categories/new', to: 'categories#new', as: 'new_category'
 
   get '/categories/:id' => 'categories#show'
+
 end
