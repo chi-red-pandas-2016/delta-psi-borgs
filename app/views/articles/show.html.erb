@@ -25,3 +25,9 @@
 		<%= f.submit "Approve", :class => 'waves-effect waves-light btn red darken-4'%>
 	<% end %>
 <% end %>
+
+<% if logged_in? && @article.revisions.last.editor_id == current_user.id %>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+<a href="/articles/<%=  @article.id %>/edit" class="btn-floating btn-large waves-effect waves-light red darken-4"><i class="material-icons">mode_edit</i></a>
+</div>
+<% end %>

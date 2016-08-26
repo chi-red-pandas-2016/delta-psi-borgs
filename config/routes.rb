@@ -9,9 +9,15 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: 'user'
 
 
+
+  get '/articles/:id/edit' => 'articles#edit'
+
+  # get '/articles/new' => 'articles#new'
+
   post '/articles', to: 'articles#create'
-  
+
   get '/articles/new', to: 'articles#new', as: 'articles_new'
+
 
   get '/articles/:id', to:  'articles#show', as: 'article'
 
