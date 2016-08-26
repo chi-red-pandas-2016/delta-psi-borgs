@@ -5,4 +5,9 @@ class Article < ApplicationRecord
   has_many :categories, through: :tags
 
   validates_presence_of :title
+
+  scope :recent, -> {
+    joins(:revisions).order("revisions.created_at desc").limit(5)
+  }
+
 end
