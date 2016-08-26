@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
   def edit
     @categories = Category.all
     @article = Article.find(params[:id])
+  end
 
   def approve
     @article = Article.find(params[:id])
