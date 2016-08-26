@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
 
   delete '/login' => 'sessions#destroy'
+
+  get 'categories/new', to: 'categories#new', as: 'new_category'
 end

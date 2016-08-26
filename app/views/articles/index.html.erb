@@ -3,6 +3,10 @@
       <div class="col s12 m4 13">
         <ul class="collection with-header">
 	        <li class="collection-header"><h4>Categories</h4></li>
+          <% if current_user == nil %>
+          <% elsif current_user.role.admin? %>
+          <li class="collection-item">Hello</li>
+          <% end %> 
           <% @categories.each do |cat| %>
             <a href="categories/<%= cat.id %>" class="collection-item"><%= cat.title %></a>
           <% end %>
