@@ -1,3 +1,4 @@
+
 <div class="row">
 </div>
 <div class="row">
@@ -8,6 +9,8 @@
       <%= @article.revisions.last.body.html_safe %>
     </div>
   </div>
+</div>
+<div class="row">
 </div>
 <% @article.categories.each do |cat| %>
 	<a href="/categories/<%= cat.id %>">
@@ -22,9 +25,6 @@
 		<%= f.submit "Approve", :class => 'waves-effect waves-light btn red darken-4'%>
 	<% end %>
 <% end %>
-
-
-<%= @article.revisions.last.body.html_safe %>
 
 <% if logged_in? && @article.revisions.last.editor_id == current_user.id %>
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
