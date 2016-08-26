@@ -1,8 +1,21 @@
-<h2>Create New Article</h2>
-
-<%= form_for @article, url: "/articles" do |f| %>
-  <%= render partial: 'title', locals: {f: f} %>
-  <%= render partial: 'categories', locals: {categories: @categories} %>
-  <%= render partial: 'form' %>
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="row">
+  <div class="col s10 offset-s1">
+    <div class="card">
+      <div class="card-content">
+        <h2 class="center-align">Create New Article</h2>
+        <%= form_for @article, url: "/articles" do |f| %>
+        <div class="row center-align">
+          <%= render partial: 'title', locals: {f: f} %>
+        </div>
+        <div class="row center-align">
+        <%= render partial: 'categories', locals: {categories: @categories} %>
+      </div>
+        <%= render partial: 'form' %>
+        <div class="row center-align" style="margin-top:10px">
+        <%= f.submit "Submit", :class => 'waves-effect waves-light btn red darken-4'%>
+      </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
