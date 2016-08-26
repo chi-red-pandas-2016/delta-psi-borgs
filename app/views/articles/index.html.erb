@@ -19,6 +19,7 @@
    <div class="col s12 m8 19">
     <ul class="collection z-depth-5">
       <% @articles.each do |article| %>
+
         <% if logged_in? && admin_access? %>
           <%= render partial: 'display_articles', locals: {article: article} %>
         <% elsif article.revisions.where(approved: true) != [] %>
