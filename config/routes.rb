@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   post '/articles' => 'articles#create'
 
+  get '/categories/:id' => 'categories#show'
+
   get '/login' => 'sessions#new'
 
   post '/login' => 'sessions#create'
