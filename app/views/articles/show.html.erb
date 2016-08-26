@@ -11,9 +11,16 @@
   </div>
 </div>
 <% @article.categories.each do |cat| %>
-<a href="/categories/<%= cat.id %>">
-  <div class="chip z-depth-3">
-    <%= cat.title %>
-  </div>
-</a>
+	<a href="/categories/<%= cat.id %>">
+	  <div class="chip z-depth-3">
+	    <%= cat.title %>
+	  </div>
+	</a>
 <% end %>
+
+<% if logged_in? && admin_access? %>
+	<%= form_for @article, url: appove_article_path do |f| %>
+		<%= f.submit "Approve", :class => 'waves-effect waves-light btn red darken-4'%>
+	<% end %>
+<% end %>
+
