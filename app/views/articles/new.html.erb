@@ -2,8 +2,8 @@
   <div class="col s10 offset-s1">
     <div class="card">
       <div class="card-content">
-        <%= render partial: 'shared/errors', locals: {active_object: @article} %>
         <h2 class="center-align">Create New Article</h2>
+        <% p @article %>
         <%= form_for @article, url: "/articles" do |f| %>
         <div class="row center-align">
           <%= render partial: 'title', locals: {f: f} %>

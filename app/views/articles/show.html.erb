@@ -4,7 +4,7 @@
   <div class="col s12">
     <div class="card-panel z-depth-3">
       <h2><%= @article.title %></h2>
-     	<img src=<%=@article.picture%> style="width: 25%;margin-left:75%"> 
+     	<img src=<%=@article.picture%> style="width: 25%;margin-left:75%">
       <%= @article.revisions.last.body.html_safe %>
     </div>
   </div>
@@ -23,3 +23,11 @@
 	<% end %>
 <% end %>
 
+
+<%= @article.revisions.last.body.html_safe %>
+
+<% if logged_in? && @article.revisions.last.editor_id == current_user.id %>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+<a href="/articles/<%=  @article.id %>/edit" class="btn-floating btn-large waves-effect waves-light red darken-4"><i class="material-icons">mode_edit</i></a>
+</div>
+<% end %>
