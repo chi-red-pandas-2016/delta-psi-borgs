@@ -15,6 +15,12 @@ class ArticlesController < ApplicationController
     @categories = Category.all
   end
 
+  def approve
+    @article = Article.find(params[:id])
+    @article.revisions.last.update_attribute(:approved, true)
+    redirect_to article_path
+  end
+
   def create
     params.inspect
     if current_user && current_user.role.user?
@@ -40,7 +46,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title)
+    params.require(:article).permit(:title, :picture)
   end
 
   def revision_params

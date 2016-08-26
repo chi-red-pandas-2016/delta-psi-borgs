@@ -19,11 +19,12 @@
    <div class="col s12 m8 19">
     <ul class="collection z-depth-5">
       <% @articles.each do |article| %>
-    	<li class="collection-item avatar">
-    		<img src="" alt="" class="circle">
-    		<span class="title"></span>
-    		<p><%= link_to article.title, "articles/#{article.id}" %></p>
-    </li>
+
+        <% if logged_in? && admin_access? %>
+          <%= render partial: 'display_articles', locals: {article: article} %>
+        <% elsif article.revisions.where(approved: true) != [] %>
+        	<%= render partial: 'display_articles', locals: {article: article} %>
+        <% end %>
     <% end %>
   </ul>
  </div>
