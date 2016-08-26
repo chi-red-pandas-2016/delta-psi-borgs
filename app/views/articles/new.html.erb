@@ -7,7 +7,9 @@
         <div class="row center-align">
           <%= render partial: 'title', locals: {f: f} %>
         </div>
+        <div class="row center-align">
         <%= render partial: 'categories', locals: {categories: @categories} %>
+      </div>
         <%= render partial: 'form' %>
         <div class="row center-align" style="margin-top:10px">
         <%= f.submit "Submit", :class => 'waves-effect waves-light btn red darken-4'%>
