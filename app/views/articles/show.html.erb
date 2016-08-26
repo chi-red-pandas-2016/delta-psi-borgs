@@ -4,10 +4,9 @@
   <div class="col s12">
     <div class="card-panel z-depth-3">
       <h2><%= @article.title %></h2>
+     	<img src=<%=@article.picture%> style="width: 25%;margin-left:75%"> 
       <%= @article.revisions.last.body.html_safe %>
-
     </div>
-
   </div>
 </div>
 <% @article.categories.each do |cat| %>
@@ -17,3 +16,36 @@
   </div>
 </a>
 <% end %>
+
+
+<!--
+
+THIS METHOD IS CLOSER TO THE RIGHT WAY, and should be investgated when time permits 
+<div class="row">
+</div>
+<div class="row">
+  <div class="col s12">
+    <h2 class="header"><%= @article.title %></h2>
+    <div class="card horizontal">
+    	<div class="card-image">
+    	 	<img src=<%=@article.picture%>> 
+    	</div>
+    	<div class="card-stacked">
+    		<div class="card-content">
+      		<%= @article.revisions.last.body.html_safe %>
+      	</div>
+      	<div class="card-action">
+					<% @article.categories.each do |cat| %>
+					<a href="/categories/<%= cat.id %>">
+					  <div class="chip z-depth-3">
+					    <%= cat.title %>
+					  </div>
+					</a>
+		    	<% end %>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+
+ -->
