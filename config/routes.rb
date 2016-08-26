@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/users/new' => 'users#new'
 
+  get '/articles/:id/edit' => 'articles#edit'
+
   get '/articles/new' => 'articles#new'
 
   get '/articles/:id' => 'articles#show'

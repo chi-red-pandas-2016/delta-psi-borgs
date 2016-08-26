@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col s10 offset-s1">
+    <div class="card">
+      <div class="card-content">
+        <h2 class="center-align">Edit an Article</h2>
+        <% p @article %>
+        <%= form_for @article, url: "/articles", method: :patch do |f| %>
+        <div class="row center-align">
+          <%= render partial: 'title', locals: {f: f} %>
+        </div>
+        <div class="row center-align">
+
+          <% @categories.each do |cat| %>
+            <% if @article.categories.find_by(id: cat.id) %>
+              <%= check_box_tag(cat.id, cat.title, true) %>
+              <%= label_tag(cat.id, "#{cat.title}")%>
+            <% else %>
+              <%= check_box_tag(cat.id) %>
+              <%= label_tag(cat.id, "#{cat.title}")%>
+            <% end %>
+          <% end %>
+      </div>
+      <script src="//cdn.ckeditor.com/4.5.10/standard/ckeditor.js"></script>
+       <textarea name="revision[body]"><%= @article.revisions.order("created_at DESC").first.body %></textarea>
+      <script>
+        window.onload = function () {
+          var edt = CKEDITOR.replace("revision[body]")({
+            skin: 'office2013,/skins/office2013/'
+          });
+        }
+      </script>
+        <div class="row center-align" style="margin-top:10px">
+        <%= f.submit "Submit", :class => 'waves-effect waves-light btn red darken-4'%>
+      </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
