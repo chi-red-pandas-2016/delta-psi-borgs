@@ -6,7 +6,6 @@
       <% if current_user %>
       <li><%= link_to current_user.username, "users/#{current_user.id}"%></li>
       <li><%= link_to "Log Out", login_path, method: :delete %></li>
-      <li><%= link_to "Create Article", articles_new_path %></li>
       <% else %>
       <li><%= link_to "Log In", login_path %></li>
       <li><%= link_to "Register", users_new_path %></li>
