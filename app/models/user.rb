@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  validates_presence_of :username, :email, :password_digest
+  validates_presence_of :username, :email
   validates_uniqueness_of :username, :email
   validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
