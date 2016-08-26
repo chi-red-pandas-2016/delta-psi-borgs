@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(version: 20160826000336) do
   create_table "revisions", force: :cascade do |t|
     t.text     "body",                       null: false
     t.text     "citations"
+
     t.integer  "editor_id",                  null: false
     t.integer  "article_id",                 null: false
+
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "approved",   default: false

@@ -1,3 +1,4 @@
+
 <nav>
   <div class="nav-wrapper red darken-4">
     <ul id="nav-mobile" class="left hide-on-med-and-down">
@@ -5,13 +6,12 @@
       <% if current_user %>
       <li><%= link_to current_user.username, "users/#{current_user.id}"%></li>
       <li><%= link_to "Log Out", login_path, method: :delete %></li>
-      <li><%= link_to "Create Article", articles_new_path %></li>
       <% else %>
       <li><%= link_to "Log In", login_path %></li>
       <li><%= link_to "Register", users_new_path %></li>
       <% end %>
     </ul>
-   <a href="/" class="brand-logo center">Wiki Wiki Wiki</a>
+   <a href="/" class="brand-logo center logo-main">Wiki Wiki Wiki</a>
    <form>
      <div class="input-field red darken-4 right" style="75%">
        <input id="search" type="search" required>
@@ -22,3 +22,5 @@
  </div>
  </div>
 </nav>
+<img id="turntable" src="/turntab1.png" />
+<img id="bars" src="/bars.png" />
