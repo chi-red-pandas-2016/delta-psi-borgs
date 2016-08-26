@@ -2,25 +2,30 @@ Rails.application.routes.draw do
   get 'articles/index'
   root 'articles#index'
 
-  get 'users/new' => 'users#new'
+  post 'users', to: 'users#create'
 
-  post 'users' => 'users#create'
+  get '/users/new', to:  'users#new', as: 'users_new'
 
-  get 'users/:id' => 'users#show'
+  get 'users/:id', to: 'users#show', as: 'user'
 
-  get '/users/new' => 'users#new'
 
-  get '/articles/new' => 'articles#new'
+  post '/articles', to: 'articles#create'
+  
+  get '/articles/new', to: 'articles#new', as: 'articles_new'
 
-  get '/articles/:id' => 'articles#show'
+  get '/articles/:id', to:  'articles#show', as: 'article'
 
-  post '/articles' => 'articles#create'
-
-  get '/categories/:id' => 'categories#show'
-
-  get '/login' => 'sessions#new'
 
   post '/login' => 'sessions#create'
 
-  delete '/login' => 'sessions#destroy'
+  get '/login', to: 'sessions#new', as: 'sessions_new'
+
+  delete '/login', to: 'sessions#destroy'
+
+
+  post 'categories', to: 'categories#create'
+
+  get 'categories/new', to: 'categories#new', as: 'new_category'
+
+  get '/categories/:id' => 'categories#show'
 end

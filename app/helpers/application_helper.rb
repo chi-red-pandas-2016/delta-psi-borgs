@@ -8,6 +8,19 @@ module ApplicationHelper
   end
 
   def authorize!
-    redirect '/login' unless logged_in?
+    redirect_to '/login' unless logged_in?
   end
+
+  def admin_access?
+	 current_user.role.admin?
+  end
+
+  def user_access?
+	 current_user.role.user?
+  end
+
+  def guest_access?
+  	current_user.role.guest?
+  end
+
 end
