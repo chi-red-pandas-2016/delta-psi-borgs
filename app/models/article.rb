@@ -10,4 +10,7 @@ class Article < ApplicationRecord
     joins(:revisions).order("revisions.created_at desc").limit(5)
   }
 
+  def author
+    self.revisions.first.editor
+  end
 end

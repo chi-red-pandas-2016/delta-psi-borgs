@@ -7,7 +7,16 @@ class User < ApplicationRecord
   has_many :revisions, foreign_key: :editor_id
   belongs_to :role
 
-  def author
-    self.revisions.first.username
+  def author_of
+    Article.all.select { |art| art.author == self}
   end
+
+  def recent_five_articles
+    if author_of
+      author_of.sort do |a, b|
+        b.created_at <=> a.created_at
+      end
+    end
+  end
+
 end
