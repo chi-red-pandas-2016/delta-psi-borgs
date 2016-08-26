@@ -1,6 +1,13 @@
 class CategoriesController < ApplicationController
+	include ApplicationHelper
+	
 	def new
-		@category = Category.new
+		
+		if current_user && admin_access?
+			@category = Category.new
+		else
+			redirect_to root_path
+		end
 	end
 
 	def create
@@ -11,5 +18,5 @@ class CategoriesController < ApplicationController
 			render 'new'
 		end
 	end
-	
+
 end

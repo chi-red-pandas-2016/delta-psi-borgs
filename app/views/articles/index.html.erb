@@ -4,7 +4,7 @@
         <ul class="collection with-header">
 	        <li class="collection-header"><h4>Categories</h4></li>
           <% if current_user == nil %>
-          <% elsif current_user.role.admin? %>
+          <% elsif admin_access? %>
             <a href="/categories/new" class="collection-item">new category</a>
           <% end %> 
           <% @categories.each do |cat| %>
